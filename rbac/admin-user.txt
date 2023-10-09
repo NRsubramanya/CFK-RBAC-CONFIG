@@ -1,3 +1,0 @@
-username=cn=admin,dc=example,dc=org
-password=e1NTSEF9ME5ON29Sa1NJUEY5TG0xQnR0QUJSNUk2WkdMUnpQMXM=
-

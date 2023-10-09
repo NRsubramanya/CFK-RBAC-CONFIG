@@ -1,6 +1,0 @@
-dn: cn=kafka,dc=example,dc=org
-userPassword: kafka-secret
-description: kafka user
-objectClass: simpleSecurityObject
-objectClass: organizationalRole
-cn: kafka

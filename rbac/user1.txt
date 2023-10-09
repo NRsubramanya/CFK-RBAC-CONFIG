@@ -1,2 +1,0 @@
-username=cn=user1,dc=example,dc=org
-password=user1

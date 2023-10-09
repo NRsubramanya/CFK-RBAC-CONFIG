@@ -1,3 +1,0 @@
-username=cn=mds,dc=example,dc=org
-password=bWRz
-

@@ -1,2 +1,0 @@
-username=cn=superUser,dc=example,dc=org
-password=superUser
