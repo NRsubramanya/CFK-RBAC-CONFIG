@@ -1,0 +1,64 @@
+apiVersion: platform.confluent.io/v1beta1
+kind: ConfluentRolebinding
+metadata:
+  name: rolebinding1
+  namespace: kb
+spec:
+  principal:                  
+    type: user                    
+    name: barnie                   
+  role: DeveloperWrite                      
+  resourcePatterns:          
+    - name: test-                  
+      resourceType: Topic          
+      patternType: PREFIXED     
+  clustersScopeByIds:         
+    kafkaClusterId: s4s0aRJpTbeVGHKh0JA-Dg
+  clustersScopByRegistryName: 
+  kafkaRestClassRef:          
+    name: kafkarest                    
+    namespace: kb  
+
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: ConfluentRolebinding
+metadata:
+  name: rolebinding2
+  namespace: kb
+spec:
+  principal:
+    type: user
+    name: barnie 
+  role: DeveloperRead
+  resourcePatterns:
+    - name: c-group
+      resourceType: Group
+      patternType: LITERAL
+  clustersScopeByIds:
+    kafkaClusterId: s4s0aRJpTbeVGHKh0JA-Dg
+  clustersScopByRegistryName:
+  kafkaRestClassRef:
+    name: kafkarest
+    namespace: kb
+
+---
+apiVersion: platform.confluent.io/v1beta1
+kind: ConfluentRolebinding
+metadata:
+  name: rolebinding3
+  namespace: kb
+spec:
+  principal:
+    type: user
+    name: barnie 
+  role: DeveloperRead
+  resourcePatterns:
+    - name: test-
+      resourceType: Topic
+      patternType: PREFIXED
+  clustersScopeByIds:
+    kafkaClusterId: s4s0aRJpTbeVGHKh0JA-Dg
+  clustersScopByRegistryName:
+  kafkaRestClassRef:
+    name: kafkarest
+    namespace: kb

@@ -1,0 +1,5 @@
+username=schemaregistryUser
+password=schemaregistryUser
+
+
+

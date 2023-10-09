@@ -1,0 +1,132 @@
+00_kafka.ldif: |-
+    dn: cn=kafka,dc=example,dc=org
+    userPassword: kafka-secret
+    description: kafka user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: kafka
+01_erp.ldif: |-
+    dn: cn=erp,dc=example,dc=org
+    userPassword: erp-secret
+    description: erp user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: erp
+02_sr.ldif: |-
+    dn: cn=sr,dc=example,dc=org
+    userPassword: sr-secret
+    description: schema registry user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: sr
+03_c3.ldif: |-
+    dn: cn=c3,dc=example,dc=org
+    userPassword: c3-secret
+    description: control center user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: c3
+04_ksql.ldif: |-
+    dn: cn=ksql,dc=example,dc=org
+    userPassword: ksql-secret
+    description: ksql user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: ksql
+05_connect.ldif: |-
+    dn: cn=connect,dc=example,dc=org
+    userPassword: connect-secret
+    description: connect user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: connect
+06_replicator.ldif: |-
+    dn: cn=replicator,dc=example,dc=org
+    userPassword: replicator-secret
+    description: replicator user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: replicator
+07_krp.ldif: |-
+    dn: cn=krp,dc=example,dc=org
+    userPassword: krp-secret
+    description: krp user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: krp
+08_c3-test.ldif: |-
+    dn: cn=testadmin,dc=example,dc=org
+    userPassword: testadmin
+    description: testadmin user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: testadmin
+09_c3-groupou.ldif: |-
+    dn: ou=users,dc=example,dc=org
+    objectClass: organizationalUnit
+    ou: Users
+
+    dn: ou=groups,dc=example,dc=org
+    objectClass: organizationalUnit
+    ou: Groups
+10_c3usersgroup.ldif: |-
+    dn: cn=c3users,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: posixGroup
+    cn: c3users
+    gidNumber: 5000
+11_readonlyusersgroup.ldif: |-
+    dn: cn=readonlyusers,ou=groups,dc=example,dc=org
+    objectClass: top
+    objectClass: posixGroup
+    cn: readonlyusers
+    gidNumber: 5000
+12_alice.ldif:  |-
+    dn: cn=alice,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: posixAccount
+    objectClass: shadowAccount
+    uid: alice
+    sn: LookingGlass
+    givenName: Alice
+    cn: alice
+    displayName: Alice LookingGlass
+    uidNumber: 10000
+    gidNumber: 5000
+    userPassword: alice-secret
+    gecos: alice
+    loginShell: /bin/bash
+    homeDirectory: /home/alice
+13_user1.ldif:  |-
+    dn: cn=user1,ou=users,dc=example,dc=org
+    objectClass: inetOrgPerson
+    objectClass: posixAccount
+    objectClass: shadowAccount
+    uid: user1
+    sn: LookingGlass
+    givenName: user1
+    cn: user1
+    displayName: user1
+    uidNumber: 10009
+    gidNumber: 5000
+    userPassword: user1
+    gecos: user1
+    loginShell: /bin/bash
+    homeDirectory: /home/user1
+14_addgroup.ldif:  |-
+    dn: cn=readonlyusers,ou=groups,dc=example,dc=org
+    changetype: modify
+    add: memberuid
+    memberuid: cn=alice,ou=users,dc=example,dc=org
+    
+    dn: cn=c3users,ou=groups,dc=example,dc=org
+    changetype: modify
+    add: memberuid
+    memberuid: cn=user1,ou=users,dc=example,dc=org
+15_kafka-dev.ldif: |-
+    dn: cn=devuser,dc=example,dc=org
+    userPassword: dev-password
+    description: Developer user
+    objectClass: simpleSecurityObject
+    objectClass: organizationalRole
+    cn: devuser
